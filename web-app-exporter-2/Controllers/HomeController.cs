@@ -22,8 +22,6 @@ public class HomeController : Controller
         
         telemetryClient.TrackEvent("My event from exporter 2");
         
-        telemetryClient.Flush();
-        
         return View();
     }
 
