@@ -9,6 +9,8 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
+    private TelemetryClient _telemetryClient = new TelemetryClient("<YOUR_APPLICATION_INSIGHTS_CONNECTION_STRING>");
+    
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -16,11 +18,9 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var telemetryClient = new TelemetryClient("<YOUR_APPLICATION_INSIGHTS_CONNECTION_STRING>");
+        _telemetryClient.TrackDependency("My dependency from web controller 2");
         
-        telemetryClient.TrackDependency("My dependency from web controller 2");
-        
-        telemetryClient.TrackEvent("My event from web controller 2");
+        _telemetryClient.TrackEvent("My event from web controller 2");
         
         return View();
     }
