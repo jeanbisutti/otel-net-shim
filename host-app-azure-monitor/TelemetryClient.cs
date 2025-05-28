@@ -45,7 +45,7 @@ public class TelemetryClient
         TracerProvider = builder.Services.GetService<TracerProvider>();
         LoggerProvider = builder.Services.GetService<LoggerProvider>();
         MeterProvider = builder.Services.GetService<MeterProvider>();
-        Logger = builder.Services.GetService<ILoggerFactory>()?.CreateLogger("TelemetryClient");
+        Logger = builder.Services.GetService<ILoggerFactory>()?.CreateLogger("ApplicationInsightsLogger");
         Tracer = TracerProvider.GetTracer(appInsightsTracerName);
     }
 

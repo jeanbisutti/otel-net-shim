@@ -47,7 +47,7 @@ public class TelemetryClient
         _logger.LogInformation(traceName);
     }
 
-    public void TrackRequest(string url, string httpMethod, string status)
+    public void TrackRequest(string url, string httpMethod)
     {
         var spanName = httpMethod; // should be {http-method} + " " + {relative-url}
         using (var activity = _tracer.StartActiveSpan(spanName, SpanKind.Server))

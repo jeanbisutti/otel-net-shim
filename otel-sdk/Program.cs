@@ -6,7 +6,7 @@ var telemetryClient = new TelemetryClient(AzureCloudRoleName, "<YOUR_APPLICATION
 
 telemetryClient.TrackTrace("Log from OTel SDK");
 
-telemetryClient.TrackRequest("http://example.com", "GET", "200");
+telemetryClient.TrackRequest("http://example.com", "GET");
 
 telemetryClient.TrackDependency("MyDependency");
 
